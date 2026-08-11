@@ -1,4 +1,4 @@
-# Muhammad Ahmed Lashari — Portfolio
+# Muhammad Ahmed Lashari - Portfolio
 
 A minimal, premium personal portfolio website built with plain HTML, CSS, and vanilla JavaScript. Designed with a Liquid Glass aesthetic inspired by Apple's modern UI.
 
@@ -9,7 +9,7 @@ A minimal, premium personal portfolio website built with plain HTML, CSS, and va
 - ✦ Scroll-triggered fade-in animations
 - ✦ Active section highlighting in nav
 - ✦ Fully responsive (mobile, tablet, desktop)
-- ✦ Zero dependencies — no frameworks, no build step
+- ✦ Zero dependencies - no frameworks, no build step
 - ✦ GitHub Pages ready
 
 ## Structure
@@ -28,7 +28,7 @@ portfolio/
 
 1. Clone or download this folder.
 2. Place your resume PDF at `assets/resume.pdf`.
-3. Open `index.html` in a browser — no build step needed.
+3. Open `index.html` in a browser - no build step needed.
 
 ## Deploy to GitHub Pages
 
