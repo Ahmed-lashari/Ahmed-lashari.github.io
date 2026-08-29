@@ -13,7 +13,9 @@
   <meta property="og:title" content="Muhammad Ahmed Lashari - Founder & Lead AI Engineer">
   <meta property="og:description"
     content="Architecting ideation-to-production agentic & generative AI products, vector search backends, and enterprise AI SaaS. Founder of Indus Systems.">
-  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="indus_logo.png">
+  <link rel="apple-touch-icon" href="indus_logo.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1083,6 +1085,19 @@
       box-shadow: 0 6px 20px var(--accent-glow);
     }
 
+    .edu-leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    @media(max-width: 768px) {
+      .edu-leadership-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .c-link-btn svg {
       width: 16px;
       height: 16px;
@@ -1110,14 +1125,15 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
+        <img src="indus_logo.png" alt="Indus Systems" style="width: 22px; height: 22px; object-fit: contain;">
         <span class="brand-name">M. AHMED LASHARI</span>
         <span class="brand-pill">INDUS SYSTEMS</span>
       </div>
       <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#products">Flagship Products</a>
+        <a href="#products">Products</a>
         <a href="#expertise">Core Architecture</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#stack">Tech Matrix</a>
+        <a href="#experience">Work Experience</a>
+        <a href="#stack">Tech Stack</a>
         <a href="#contact">Contact</a>
       </nav>
       <a href="https://indus.systems" target="_blank" rel="noopener" class="cta-button">
@@ -1298,7 +1314,7 @@
         </article>
 
         <!-- CNN-RNN Handwriting OCR -->
-        <article class="product-card">
+        <!-- <article class="product-card">
           <div class="product-badge-row">
             <span class="status-badge badge-arch">● Neural Network Architecture</span>
             <span class="product-subtitle">COMPUTER VISION RESEARCH</span>
@@ -1329,10 +1345,10 @@
               View Source Repository ↗
             </a>
           </div>
-        </article>
+        </article> -->
 
         <!-- Architecture Builder CLI -->
-        <article class="product-card">
+        <!-- <article class="product-card">
           <div class="product-badge-row">
             <span class="status-badge badge-live">● 100+ Monthly Downloads</span>
             <span class="product-subtitle">DEVELOPER TOOLING</span>
@@ -1360,7 +1376,7 @@
               View Developer Tooling ↗
             </a>
           </div>
-        </article>
+        </article> -->
       </div>
     </section>
 
@@ -1478,6 +1494,26 @@
           </div>
         </div>
 
+        <!-- CrovenAI -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-role">AI Engineer Intern</h3>
+              <span class="timeline-date">Jul 2026 - Sep 2026</span>
+            </div>
+            <div class="timeline-company">
+              CrovenAI · Onsite
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed tool-integrated LLM agents with LangChain and custom API function execution (Google
+                Calendar, Webhooks).</li>
+              <li>Built RAG search backends using embeddings, semantic search, and PostgreSQL pgvector indexing.</li>
+              <li>Optimized retrieval precision through chunking strategies and dense vector embedding tuning.</li>
+            </ul>
+          </div>
+        </div>
+
         <!-- SONNY -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
@@ -1499,22 +1535,28 @@
           </div>
         </div>
 
-        <!-- CrovenAI -->
+        <!-- ITSAWK -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3 class="timeline-role">AI Engineer &amp; RAG Specialist</h3>
-              <span class="timeline-date">Jul 2026 - Sep 2026</span>
+              <h3 class="timeline-role">Flutter Developer Intern</h3>
+              <span class="timeline-date">March 2025 - May 2025</span>
             </div>
             <div class="timeline-company">
-              CrovenAI · Onsite
+              ITSAWK IT Solution Center · Onsite
             </div>
             <ul class="timeline-bullets">
-              <li>Developed tool-integrated LLM agents with LangChain and custom API function execution (Google
-                Calendar, Webhooks).</li>
-              <li>Built RAG search backends using embeddings, semantic search, and PostgreSQL pgvector indexing.</li>
-              <li>Optimized retrieval precision through chunking strategies and dense vector embedding tuning.</li>
+              <li>Developed Flutter applications for iOS and Android platforms using the latest version of Flutter.
+              </li>
+              <li>Integrated RESTful APIs with Flutter applications to fetch and display data from backend services.
+              </li>
+              <li>Implemented Firebase services for authentication, real-time database, and cloud messaging.</li>
+              <li>Collaborated with the design team to implement visually appealing user interfaces using Flutter's
+                widget system.</li>
+              <li>Participated in Agile development methodologies, including sprint planning, daily stand-ups, and
+                retrospectives.</li>
+              <li>Utilized Git and GitHub for version control and collaborative development.</li>
             </ul>
           </div>
         </div>
@@ -1611,10 +1653,12 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION & LEADERSHIP -->
     <section class="section container" id="education">
-      <div class="eyebrow">Academic Background</div>
-      <h2 class="section-title">Education &amp; <span>Foundations</span></h2>
+      <div class="eyebrow">Academic Background &amp; Leadership</div>
+      <h2 class="section-title">Education &amp; <span>Campus Leadership</span></h2>
+
+      <!-- Primary Degree -->
       <div
         style="margin-top: 24px; padding: 30px; border-radius: var(--radius-lg); background: #FFF; border: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(15, 122, 125, 0.04);">
         <div>
@@ -1626,6 +1670,61 @@
         <span
           style="font-family: var(--mono); font-size: 0.8rem; font-weight: 700; padding: 6px 16px; border-radius: 999px; background: rgba(15, 122, 125, 0.12); border: 1px solid var(--border-bright); color: var(--accent-deep);">Expected
           Aug 2027</span>
+      </div>
+
+      <!-- Campus Leadership Cards Grid -->
+      <div class="edu-leadership-grid">
+        <!-- Bano Qabil Ambassador -->
+        <div
+          style="padding: 24px; border-radius: var(--radius-lg); background: #FFF; border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(15, 122, 125, 0.04); display: flex; flex-direction: column;">
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="bano_qabil.png" alt="Bano Qabil Logo"
+                style="width: 40px; height: 40px; object-fit: contain; border-radius: 6px;">
+              <div>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin: 0;">Campus
+                  Ambassador</h4>
+                <span
+                  style="font-family: var(--mono); font-size: 0.78rem; color: var(--accent-deep); font-weight: 700;">Bano
+                  Qabil Initiative</span>
+              </div>
+            </div>
+            <span
+              style="font-family: var(--mono); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(15, 122, 125, 0.1); border: 1px solid var(--border-subtle); color: var(--accent-bright); white-space: nowrap;">Session
+              2026 – 2027</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Serving as Campus Ambassador for the Bano Qabil program. Driving student engagement toward technology
+            entrepreneurship, innovation, and conducting technical awareness workshops for emerging tech talent.
+          </p>
+        </div>
+
+        <!-- Google Developer Dev Team -->
+        <div
+          style="padding: 24px; border-radius: var(--radius-lg); background: #FFF; border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(15, 122, 125, 0.04); display: flex; flex-direction: column;">
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="google_dev.svg" alt="Google Developer Logo"
+                style="width: 40px; height: 40px; object-fit: contain;">
+              <div>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin: 0;">Core Dev Team
+                  Member</h4>
+                <span
+                  style="font-family: var(--mono); font-size: 0.78rem; color: var(--accent-deep); font-weight: 700;">Google
+                  Developer Student Clubs</span>
+              </div>
+            </div>
+            <span
+              style="font-family: var(--mono); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(15, 122, 125, 0.1); border: 1px solid var(--border-subtle); color: var(--accent-bright); white-space: nowrap;">Session
+              2023 – 2024</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Active Core Dev Team member at Google Developer Student Clubs (GDSC). Collaborated on developer workshops,
+            technical peer mentoring, and community hackathons.
+          </p>
+        </div>
       </div>
     </section>
 
