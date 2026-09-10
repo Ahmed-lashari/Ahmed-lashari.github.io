@@ -1,0 +1,759 @@
+/* ============================================================
+   INDUS.SYSTEMS - Minimal Resume / CV Design System
+   Brand Accent: Indus Teal (#0F7A7D)
+   Surface: Warm Alabaster (#FAFAF9)
+   ============================================================ */
+
+/* ---------- 1. Design Tokens ---------- */
+:root {
+  /* Surfaces */
+  --bg:           #FAFAF9;
+  --bg-surface:   #FFFFFF;
+  --bg-subtle:    #F4F5F4;
+  
+  /* Typography Colors */
+  --ink:          #0F172A;
+  --ink-secondary:#334155;
+  --ink-muted:    #64748B;
+  --ink-faint:    #94A3B8;
+
+  /* Brand Accent - Indus Teal */
+  --accent:       #0F7A7D;
+  --accent-deep:  #0C6F73;
+  --accent-glow:  rgba(15, 122, 125, 0.08);
+
+  /* Status Colors */
+  --status-available: #059669;
+  --status-building:  #D97706;
+  --status-planned:   #64748B;
+
+  /* Borders & Dividers */
+  --border:       #E2E8F0;
+  --border-strong:#CBD5E1;
+
+  /* Type Families */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code:    ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+
+  /* Layout */
+  --cv-width: 840px;
+  
+  color-scheme: light;
+}
+
+/* ---------- 2. Base & Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-deep);
+  text-decoration: underline;
+}
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+code, .mono {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+}
+
+::selection {
+  background: var(--accent);
+  color: #FFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--ink);
+  color: #FFF;
+  padding: 8px 16px;
+  z-index: 100;
+  font-size: 13px;
+  font-weight: 500;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ---------- 3. Action Bar (Non-print) ---------- */
+.cv-action-bar {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.cv-action-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--status-available);
+  display: inline-block;
+}
+
+.cv-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.cv-btn-outline {
+  background: var(--bg-surface);
+  color: var(--ink);
+  border-color: var(--border-strong);
+}
+.cv-btn-outline:hover {
+  background: var(--bg-subtle);
+  border-color: var(--ink-muted);
+}
+
+.cv-btn-teal {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+.cv-btn-teal:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+/* ---------- 4. Main Resume Container ---------- */
+.cv-page {
+  min-height: 100vh;
+}
+
+.cv-container {
+  max-width: var(--cv-width);
+  margin: 32px auto 60px auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 56px 48px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+}
+
+/* ---------- 5. Header Section (Centered Name & Info) ---------- */
+.cv-header {
+  text-align: center;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.cv-header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.cv-brand-mark {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.cv-name {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.cv-legal-name {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.cv-title {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-bottom: 18px;
+}
+
+.cv-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  font-size: 13px;
+  color: var(--ink-secondary);
+}
+
+.cv-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+.cv-contact-link:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.cv-contact-link.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cv-sep {
+  color: var(--border-strong);
+  user-select: none;
+}
+
+/* ---------- 6. Resume Sections ---------- */
+.cv-section {
+  margin-bottom: 32px;
+}
+
+.cv-section-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+.cv-section-content {
+  padding-left: 2px;
+}
+
+.cv-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+.cv-text strong {
+  color: var(--ink);
+}
+
+/* ---------- 7. Experience / Product Entries ---------- */
+.cv-entry {
+  margin-bottom: 22px;
+}
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-entry-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.cv-entry-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-entry-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+.cv-entry-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cv-external-link {
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cv-entry-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-bottom: 8px;
+}
+
+.cv-list {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cv-list li {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+}
+
+.cv-list li strong {
+  color: var(--ink);
+}
+
+/* Status Badges */
+.cv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.badge-available {
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--status-available);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.badge-building {
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--status-building);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.badge-planned {
+  background: var(--bg-subtle);
+  color: var(--status-planned);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Community & Ambassador Card Styles ---------- */
+.cv-community-entry {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.cv-community-entry:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+}
+.cv-community-entry:last-child {
+  margin-bottom: 0;
+}
+.cv-community-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.cv-community-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 4px;
+}
+
+
+/* ---------- 8. Skills Grid ---------- */
+.cv-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  margin-bottom: 18px;
+}
+
+.cv-skill-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.cv-skill-cat {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.cv-skill-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.cv-keywords {
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 0 4px 4px 0;
+}
+
+.cv-keywords strong {
+  color: var(--ink);
+}
+
+/* ---------- 9. Governance Table ---------- */
+.cv-gov-table {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.cv-gov-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.cv-gov-row:last-child {
+  border-bottom: none;
+}
+
+.cv-gov-label {
+  background: var(--bg);
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--ink);
+  border-right: 1px solid var(--border);
+}
+
+.cv-gov-val {
+  padding: 10px 14px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.cv-gov-action {
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ---------- 10. Footer ---------- */
+.cv-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.cv-footer-meta p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cv-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cv-footer-links a {
+  color: var(--ink-muted);
+}
+.cv-footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ---------- 11. Modal Dialog ---------- */
+.gov-modal {
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.15);
+  max-width: 640px;
+  width: 90%;
+  background: var(--bg-surface);
+}
+
+.gov-modal::backdrop {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.gov-modal-content {
+  padding: 24px;
+}
+
+.gov-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.gov-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.gov-modal-sub {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.gov-modal-close {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+.gov-modal-close:hover {
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.gov-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.gov-modal-item {
+  font-size: 12.5px;
+}
+
+.gov-modal-label {
+  display: block;
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+
+.gov-modal-val {
+  color: var(--ink);
+  font-weight: 500;
+}
+.gov-modal-val.bold {
+  font-weight: 700;
+}
+.gov-modal-val.highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.gov-modal-disclaimer {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.gov-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- 12. Mobile Responsive ---------- */
+@media (max-width: 640px) {
+  .cv-action-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .cv-container {
+    margin: 12px;
+    padding: 28px 20px;
+  }
+  .cv-name {
+    font-size: 24px;
+  }
+  .cv-entry-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cv-entry-meta {
+    text-align: left;
+  }
+  .cv-skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .cv-gov-row {
+    grid-template-columns: 1fr;
+  }
+  .cv-gov-label {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .cv-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gov-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 13. Print Styles ---------- */
+@media print {
+  body {
+    background: #FFF;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .cv-action-bar,
+  .skip-link,
+  .gov-modal,
+  .cv-gov-action {
+    display: none !important;
+  }
+
+  .cv-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .cv-header {
+    border-bottom-color: #000;
+    margin-bottom: 20pt;
+    padding-bottom: 15pt;
+  }
+
+  .cv-section-title {
+    color: #000;
+    border-bottom-color: #000;
+  }
+
+  .cv-entry {
+    break-inside: avoid;
+  }
+
+  .cv-badge {
+    border: 1px solid #666;
+    color: #000 !important;
+    background: none !important;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .cv-skill-item,
+  .cv-gov-table {
+    border-color: #999;
+  }
+}
