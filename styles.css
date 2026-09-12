@@ -7,43 +7,45 @@
 /* ---------- 1. Design Tokens ---------- */
 :root {
   /* Surfaces */
-  --bg:           #FAFAF9;
-  --bg-surface:   #FFFFFF;
-  --bg-subtle:    #F4F5F4;
-  
+  --bg: #FAFAF9;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F4F5F4;
+
   /* Typography Colors */
-  --ink:          #0F172A;
-  --ink-secondary:#334155;
-  --ink-muted:    #64748B;
-  --ink-faint:    #94A3B8;
+  --ink: #0F172A;
+  --ink-secondary: #334155;
+  --ink-muted: #64748B;
+  --ink-faint: #94A3B8;
 
   /* Brand Accent - Indus Teal */
-  --accent:       #0F7A7D;
-  --accent-deep:  #0C6F73;
-  --accent-glow:  rgba(15, 122, 125, 0.08);
+  --accent: #0F7A7D;
+  --accent-deep: #0C6F73;
+  --accent-glow: rgba(15, 122, 125, 0.08);
 
   /* Status Colors */
   --status-available: #059669;
-  --status-building:  #D97706;
-  --status-planned:   #64748B;
+  --status-building: #D97706;
+  --status-planned: #64748B;
 
   /* Borders & Dividers */
-  --border:       #E2E8F0;
-  --border-strong:#CBD5E1;
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
 
   /* Type Families */
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-code:    ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-code: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
 
   /* Layout */
-  --cv-width: 840px;
-  
+  --cv-width: 960px;
+
   color-scheme: light;
 }
 
 /* ---------- 2. Base & Reset ---------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -66,7 +68,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   color: var(--ink);
   margin: 0;
@@ -94,7 +101,8 @@ ul {
   padding-left: 18px;
 }
 
-code, .mono {
+code,
+.mono {
   font-family: var(--font-code);
   font-size: 0.9em;
 }
@@ -121,6 +129,7 @@ code, .mono {
   font-size: 13px;
   font-weight: 500;
 }
+
 .skip-link:focus {
   top: 16px;
 }
@@ -179,6 +188,7 @@ code, .mono {
   color: var(--ink);
   border-color: var(--border-strong);
 }
+
 .cv-btn-outline:hover {
   background: var(--bg-subtle);
   border-color: var(--ink-muted);
@@ -189,6 +199,7 @@ code, .mono {
   color: #FFF;
   border-color: var(--accent);
 }
+
 .cv-btn-teal:hover {
   background: var(--accent-deep);
   border-color: var(--accent-deep);
@@ -202,11 +213,7 @@ code, .mono {
 .cv-container {
   max-width: var(--cv-width);
   margin: 32px auto 60px auto;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 56px 48px;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  padding: 40px 24px;
 }
 
 /* ---------- 5. Header Section (Centered Name & Info) ---------- */
@@ -273,10 +280,12 @@ code, .mono {
   color: var(--ink-secondary);
   font-weight: 500;
 }
+
 .cv-contact-link:hover {
   color: var(--accent);
   text-decoration: none;
 }
+
 .cv-contact-link.highlight {
   color: var(--accent);
   font-weight: 600;
@@ -321,6 +330,7 @@ code, .mono {
 .cv-entry {
   margin-bottom: 22px;
 }
+
 .cv-entry:last-child {
   margin-bottom: 0;
 }
@@ -425,25 +435,29 @@ code, .mono {
   margin-bottom: 16px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+
 .cv-community-entry:hover {
   border-color: var(--border-strong);
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
 }
+
 .cv-community-entry:last-child {
   margin-bottom: 0;
 }
+
 .cv-community-header {
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
+
 .cv-community-logo {
   width: 48px;
   height: 48px;
   object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
-  background: var(--bg-surface);
+  background: var(--bg-subtle);
   border: 1px solid var(--border);
   padding: 4px;
 }
@@ -505,6 +519,7 @@ code, .mono {
   border-bottom: 1px solid var(--border);
   font-size: 13px;
 }
+
 .cv-gov-row:last-child {
   border-bottom: none;
 }
@@ -551,9 +566,11 @@ code, .mono {
   align-items: center;
   gap: 8px;
 }
+
 .cv-footer-links a {
   color: var(--ink-muted);
 }
+
 .cv-footer-links a:hover {
   color: var(--accent);
 }
@@ -608,6 +625,7 @@ code, .mono {
   padding: 4px;
   border-radius: 4px;
 }
+
 .gov-modal-close:hover {
   color: var(--ink);
   background: var(--bg);
@@ -635,9 +653,11 @@ code, .mono {
   color: var(--ink);
   font-weight: 500;
 }
+
 .gov-modal-val.bold {
   font-weight: 700;
 }
+
 .gov-modal-val.highlight {
   color: var(--accent);
   font-weight: 700;
@@ -670,34 +690,43 @@ code, .mono {
     align-items: flex-start;
     gap: 10px;
   }
+
   .cv-container {
     margin: 12px;
     padding: 28px 20px;
   }
+
   .cv-name {
     font-size: 24px;
   }
+
   .cv-entry-header {
     flex-direction: column;
     gap: 4px;
   }
+
   .cv-entry-meta {
     text-align: left;
   }
+
   .cv-skills-grid {
     grid-template-columns: 1fr;
   }
+
   .cv-gov-row {
     grid-template-columns: 1fr;
   }
+
   .cv-gov-label {
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
+
   .cv-footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .gov-modal-grid {
     grid-template-columns: 1fr;
   }
