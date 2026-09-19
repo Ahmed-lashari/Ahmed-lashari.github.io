@@ -766,7 +766,8 @@ code,
     border-bottom-color: #000;
   }
 
-  .cv-entry {
+  .cv-entry,
+  .cv-community-entry {
     break-inside: avoid;
   }
 
