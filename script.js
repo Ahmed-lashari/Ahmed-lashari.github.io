@@ -1,4 +1,4 @@
-/* Ahmed Lashari - Portfolio Interactions */
+/* Muhammad Ahmed Lashari, Founder Site Interactions */
 (function () {
   "use strict";
 
@@ -6,14 +6,6 @@
   var yr = document.getElementById("year");
   if (yr) {
     yr.textContent = new Date().getFullYear();
-  }
-
-  /* ---------- Print / Save PDF Action ---------- */
-  var printBtn = document.getElementById("print-btn");
-  if (printBtn) {
-    printBtn.addEventListener("click", function () {
-      window.print();
-    });
   }
 
   /* ---------- Smooth Internal Anchor Navigation ---------- */
@@ -29,4 +21,30 @@
       }
     });
   });
+
+  /* ---------- Scroll-triggered Fade-in ---------- */
+  var fadeEls = document.querySelectorAll(".fade-in");
+
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    fadeEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    /* Fallback: show everything immediately */
+    fadeEls.forEach(function (el) {
+      el.classList.add("visible");
+    });
+  }
 })();
